@@ -20,3 +20,74 @@ module.exports = {
     // avg_temperature_in_fahrenheit,
     // avg_temperature_in_celsius
 };
+// Daily temperatures
+let day1TempF = 32;
+let day2TempC = 25;
+let day3TempF = 70;
+let day4TempC = 18;
+let day5TempF = 80;
+let day6TempC = 15;
+let day7TempF = 72;
+let day8TempC = 28;
+let day9TempF = 68;
+let day10TempC = 20;
+let day11TempF = 75;
+let day12TempC = 23;
+let day13TempF = 82;
+let day14TempC = 30;
+let day15TempF = 65;
+let day16TempC = 22;
+let day17TempF = 77;
+let day18TempC = 26;
+let day19TempF = 78;
+let day20TempC = 24;
+let day21TempF = 73;
+let day22TempC = 21;
+let day23TempF = 79;
+let day24TempC = 27;
+let day25TempF = 71;
+let day26TempC = 19;
+let day27TempF = 74;
+let day28TempC = 17;
+let day29TempF = 76;
+let day30TempC = 29;
+
+// Helper functions to convert temperatures
+const celsiusToFahrenheit = (c) => (c * 9 / 5) + 32;
+const fahrenheitToCelsius = (f) => (f - 32) * 5 / 9;
+
+// Array of all temperatures
+let tempsF = [
+    day1TempF, day3TempF, day5TempF, day7TempF, day9TempF, day11TempF, day13TempF, day15TempF,
+    day17TempF, day19TempF, day21TempF, day23TempF, day25TempF, day27TempF, day29TempF
+];
+
+let tempsC = [
+    day2TempC, day4TempC, day6TempC, day8TempC, day10TempC, day12TempC, day14TempC, day16TempC,
+    day18TempC, day20TempC, day22TempC, day24TempC, day26TempC, day28TempC, day30TempC
+];
+
+// Total temperatures
+let tot_temperature_in_fahrenheit = tempsF.reduce((sum, temp) => sum + temp, 0)
+    + tempsC.reduce((sum, temp) => sum + celsiusToFahrenheit(temp), 0);
+
+let tot_temperature_in_celsius = tempsC.reduce((sum, temp) => sum + temp, 0)
+    + tempsF.reduce((sum, temp) => sum + fahrenheitToCelsius(temp), 0);
+
+// Average temperatures
+let avg_temperature_in_fahrenheit = tot_temperature_in_fahrenheit / (tempsF.length + tempsC.length);
+let avg_temperature_in_celsius = tot_temperature_in_celsius / (tempsF.length + tempsC.length);
+
+// Optional: console.log to check
+console.log("Total Fahrenheit:", tot_temperature_in_fahrenheit);
+console.log("Total Celsius:", tot_temperature_in_celsius);
+console.log("Average Fahrenheit:", avg_temperature_in_fahrenheit);
+console.log("Average Celsius:", avg_temperature_in_celsius);
+
+// Export variables for tests
+module.exports = {
+    tot_temperature_in_fahrenheit,
+    tot_temperature_in_celsius,
+    avg_temperature_in_fahrenheit,
+    avg_temperature_in_celsius
+};
