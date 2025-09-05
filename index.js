@@ -20,7 +20,7 @@ module.exports = {
     // avg_temperature_in_fahrenheit,
     // avg_temperature_in_celsius
 };
-// Daily temperatures
+
 let day1TempF = 32;
 let day2TempC = 25;
 let day3TempF = 70;
@@ -52,11 +52,11 @@ let day28TempC = 17;
 let day29TempF = 76;
 let day30TempC = 29;
 
-// Helper functions to convert temperatures
+
 const celsiusToFahrenheit = (c) => (c * 9 / 5) + 32;
 const fahrenheitToCelsius = (f) => (f - 32) * 5 / 9;
 
-// Array of all temperatures
+
 let tempsF = [
     day1TempF, day3TempF, day5TempF, day7TempF, day9TempF, day11TempF, day13TempF, day15TempF,
     day17TempF, day19TempF, day21TempF, day23TempF, day25TempF, day27TempF, day29TempF
@@ -67,24 +67,24 @@ let tempsC = [
     day18TempC, day20TempC, day22TempC, day24TempC, day26TempC, day28TempC, day30TempC
 ];
 
-// Total temperatures
+
 let tot_temperature_in_fahrenheit = tempsF.reduce((sum, temp) => sum + temp, 0)
     + tempsC.reduce((sum, temp) => sum + celsiusToFahrenheit(temp), 0);
 
 let tot_temperature_in_celsius = tempsC.reduce((sum, temp) => sum + temp, 0)
     + tempsF.reduce((sum, temp) => sum + fahrenheitToCelsius(temp), 0);
 
-// Average temperatures
+
 let avg_temperature_in_fahrenheit = tot_temperature_in_fahrenheit / (tempsF.length + tempsC.length);
 let avg_temperature_in_celsius = tot_temperature_in_celsius / (tempsF.length + tempsC.length);
 
-// Optional: console.log to check
+
 console.log("Total Fahrenheit:", tot_temperature_in_fahrenheit);
 console.log("Total Celsius:", tot_temperature_in_celsius);
 console.log("Average Fahrenheit:", avg_temperature_in_fahrenheit);
 console.log("Average Celsius:", avg_temperature_in_celsius);
 
-// Export variables for tests
+
 module.exports = {
     tot_temperature_in_fahrenheit,
     tot_temperature_in_celsius,
